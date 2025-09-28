@@ -51,7 +51,7 @@ const Footer = () => {
 							/>
 						</svg>
 
-						<ul className="mt-6 flex items-center gap-4 flex-wrap">
+						<ul className="mt-6 flex items-center justify-center gap-4 flex-wrap">
 							{footerLinks.map(({ title, href }) => (
 								<li key={title}>
 									<Link
