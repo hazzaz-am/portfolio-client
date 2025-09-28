@@ -1,5 +1,9 @@
+import { Hero } from "@/components/modules/public/home/Hero";
+
 export default function HomePage() {
-  return (
-    <div className="my-96">HomePage</div>
-  )
+	return (
+		<section>
+			<Hero />
+		</section>
+	);
 }
