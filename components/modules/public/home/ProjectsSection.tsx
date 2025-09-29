@@ -40,7 +40,14 @@ const projects = [
 			"https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center",
 		githubUrl: "https://github.com/hazzaz-am/book-store",
 		liveUrl: "https://book-store-eta-coral.vercel.app",
-		technologies: ["React", "Redux", "Tailwind CSS", "Node.js", "MongoDB", "Express"],
+		technologies: [
+			"React",
+			"Redux",
+			"Tailwind CSS",
+			"Node.js",
+			"MongoDB",
+			"Express",
+		],
 		features: [
 			"Inventory Management",
 			"Order Processing",
@@ -165,9 +172,7 @@ export default function ProjectsSection() {
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 					{projects.map((project, index) => (
-						<Link key={project.id} href={`/projects/${project.id}`}>
-							<ProjectCard project={project} index={index} />
-						</Link>
+						<ProjectCard key={project.id} project={project} index={index} />
 					))}
 				</div>
 
