@@ -107,7 +107,7 @@ export const blogs = [
 		image:
 			"https://miro.medium.com/v2/resize:fit:720/format:webp/1*k64zdk6Y8nTjBXo5Emn1jQ.png",
 		tag: "CSS",
-		category: "Styling",
+		category: "UI/UX",
 		author: "Hazzaz Abdul Mannan",
 		publishedAt: "2024-12-20",
 		readTime: "6 min read",
