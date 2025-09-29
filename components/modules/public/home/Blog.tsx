@@ -87,7 +87,7 @@ export const blogPosts = [
 
 export default function BlogSection() {
 	return (
-		<section id="blog" className="pb-20 px-4">
+		<section id="blogs" className="py-28 px-4">
 			<div className="max-w-7xl mx-auto">
 				<BlogHeading />
 

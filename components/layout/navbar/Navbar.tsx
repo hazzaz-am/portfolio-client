@@ -22,17 +22,17 @@ const navItems = [
 		link: "/",
 	},
 	{
+		name: "About",
+		link: "#about",
+	},
+	{
 		name: "Blogs",
-		link: "/blogs",
+		link: "#blogs",
 	},
 	{
 		name: "Projects",
-		link: "/projects",
-	},
-	{
-		name: "Resume Builder",
-		link: "/resume-builder",
-	},
+		link: "#projects",
+	}
 ];
 
 export default function Navbar() {
