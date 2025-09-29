@@ -73,7 +73,7 @@ export default function BlogCard({
 						<div className="flex items-center gap-2">
 							<Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-orange-600" />
 							<span className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-								{formatDate(post.date)}
+								{formatDate(post.publishedAt)}
 							</span>
 						</div>
 					</div>
