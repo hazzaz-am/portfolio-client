@@ -47,7 +47,7 @@ export default function WorkExperience() {
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
 				exit={{ opacity: 0 }}
-				viewport={{ once: false, amount: 0.1 }}
+				viewport={{ once: false, amount: 0 }}
 				transition={{ duration: 0.9, delay: 0.2 }}
 				className="p-4 sm:p-6 lg:p-8 bg-white/80 dark:bg-neutral-900/80 backdrop-blur rounded-2xl shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] border border-white/20 dark:border-neutral-800/50 transition-all duration-300"
 			>
@@ -62,7 +62,7 @@ export default function WorkExperience() {
 							key={index}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: false, amount: 0.1 }}
+							viewport={{ once: false, amount: 0 }}
 							transition={{ duration: 0.9, delay: 0.4 + index * 0.1 }}
 							className="relative pl-6 sm:pl-8 border-l-2 border-orange-200 dark:border-orange-800 hover:border-orange-400 dark:hover:border-orange-600 transition-colors"
 						>
@@ -91,7 +91,7 @@ export default function WorkExperience() {
 				initial={{ opacity: 0}}
 				whileInView={{ opacity: 1}}
 				exit={{ opacity: 0 }}
-				viewport={{ once: false, amount: 0.1 }}
+				viewport={{ once: false, amount: 0 }}
 				transition={{ duration: 0.9, delay: 0.3 }}
 				className="p-4 sm:p-6 lg:p-8 bg-white/80 dark:bg-neutral-900/80 backdrop-blur rounded-2xl shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] border border-white/20 dark:border-neutral-800/50 transition-all duration-300"
 			>
@@ -105,7 +105,7 @@ export default function WorkExperience() {
 							key={index}
 							initial={{ opacity: 0, scale: 0.95 }}
 							whileInView={{ opacity: 1, scale: 1 }}
-							viewport={{ once: false, amount: 0.1 }}
+							viewport={{ once: false, amount: 0 }}
 							transition={{ duration: 0.9, delay: 0.4 + index * 0.1 }}
 							className="bg-slate-50 dark:bg-neutral-800/50 rounded-xl p-4 sm:p-6 hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors"
 						>
@@ -118,7 +118,7 @@ export default function WorkExperience() {
 										key={skillIndex}
 										initial={{ opacity: 0, scale: 0.8 }}
 										whileInView={{ opacity: 1, scale: 1 }}
-										viewport={{ once: false, amount: 0.1 }}
+										viewport={{ once: false, amount: 0 }}
 										exit={{ opacity: 0, scale: 0.8 }}
 										transition={{
 											duration: 0.9,
