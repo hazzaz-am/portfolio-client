@@ -1,6 +1,5 @@
 "use client";
 import { marked } from "marked";
-import { blogs } from "@/app/(public)/blogs/page";
 import BlogCard from "@/components/modules/public/home/BlogCard";
 import { Button } from "@/components/ui/button";
 import { formatDate } from "@/utils/formatDate";
@@ -21,6 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { useState } from "react";
+import { blogs } from "@/data/blogs";
 
 // Extended blog content for demonstration
 const blogContent: { [key: number]: string } = {
@@ -213,13 +213,9 @@ GraphQL is a query language for APIs that provides a more flexible and efficient
 `,
 };
 
-export default function BlogDetailsPage({
-	params,
-}: {
-	params: { blogId: string };
-}) {
+export default function BlogDetailsPage() {
 	const [copySuccess, setCopySuccess] = useState(false);
-	const blogId = parseInt(params.blogId);
+	const blogId = parseInt(Math.round(Math.random() * 8 + 1).toString());
 	const blog = blogs.find((b) => b.id === blogId);
 
 	if (!blog) {
