@@ -40,7 +40,6 @@ const navItems = [
 export default function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-
 	return (
 		<ResizableNavbar>
 			{/* Desktop Navigation */}
@@ -69,7 +68,8 @@ export default function Navbar() {
 					onClose={() => setIsMobileMenuOpen(false)}
 				>
 					<div className="flex w-full justify-between">
-						<Profile />
+						{/* <Profile /> */}
+						<Button onClick={handleDownload}>Download CV</Button>
 						<ThemeToggle />
 					</div>
 					{navItems.map((item, idx) => (
@@ -82,15 +82,6 @@ export default function Navbar() {
 							<span className="block">{item.name}</span>
 						</Link>
 					))}
-					<div className="flex w-full flex-col gap-4">
-						<NavbarButton
-							onClick={() => setIsMobileMenuOpen(false)}
-							variant="primary"
-							className="w-full"
-						>
-							Sign In
-						</NavbarButton>
-					</div>
 				</MobileNavMenu>
 			</MobileNav>
 		</ResizableNavbar>
