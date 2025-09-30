@@ -19,10 +19,6 @@ const footerLinks = [
 		title: "Projects",
 		href: "/projects",
 	},
-	{
-		title: "Resume Builder",
-		href: "/resume-builder",
-	},
 ];
 
 const Footer = () => {

@@ -15,6 +15,8 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import Link from "next/link";
 import { useState } from "react";
 import Profile from "./Profile";
+import { Button } from "@/components/ui/button";
+import { handleDownload } from "@/utils/downloadPdf";
 
 const navItems = [
 	{
@@ -27,12 +29,12 @@ const navItems = [
 	},
 	{
 		name: "Blogs",
-		link: "#blogs",
+		link: "/blogs",
 	},
 	{
 		name: "Projects",
-		link: "#projects",
-	}
+		link: "/projects",
+	},
 ];
 
 export default function Navbar() {
@@ -45,8 +47,8 @@ export default function Navbar() {
 				<NavbarLogo />
 				<NavItems items={navItems} />
 				<div className="flex items-center gap-4">
-					{/* <NavbarButton href="/signin">Sign In</NavbarButton> */}
-					<Profile />
+					{/* <Profile /> */}
+					<Button onClick={handleDownload}>Download CV</Button>
 					<ThemeToggle />
 				</div>
 			</NavBody>
@@ -66,7 +68,8 @@ export default function Navbar() {
 					onClose={() => setIsMobileMenuOpen(false)}
 				>
 					<div className="flex w-full justify-between">
-            <Profile />
+						{/* <Profile /> */}
+						<Button onClick={handleDownload}>Download CV</Button>
 						<ThemeToggle />
 					</div>
 					{navItems.map((item, idx) => (
@@ -79,15 +82,6 @@ export default function Navbar() {
 							<span className="block">{item.name}</span>
 						</Link>
 					))}
-					<div className="flex w-full flex-col gap-4">
-						<NavbarButton
-							onClick={() => setIsMobileMenuOpen(false)}
-							variant="primary"
-							className="w-full"
-						>
-							Sign In
-						</NavbarButton>
-					</div>
 				</MobileNavMenu>
 			</MobileNav>
 		</ResizableNavbar>
