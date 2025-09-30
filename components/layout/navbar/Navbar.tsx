@@ -27,11 +27,11 @@ const navItems = [
 	},
 	{
 		name: "Blogs",
-		link: "#blogs",
+		link: "/blogs",
 	},
 	{
 		name: "Projects",
-		link: "#projects",
+		link: "/projects",
 	}
 ];
 
