@@ -95,7 +95,7 @@ export default function MyProjectsPage() {
 	};
 
 	return (
-		<div className="flex-1 p-4 lg:p-6 z-50">
+		<div className="flex-1 p-4 lg:p-6">
 			<div className="max-w-7xl mx-auto space-y-6">
 				{/* Header */}
 				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
