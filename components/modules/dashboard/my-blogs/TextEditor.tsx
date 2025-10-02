@@ -17,8 +17,6 @@ import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { EditorState } from "lexical";
-import { ImageNode } from "./ImageNode";
-import ImagesPlugin from "./ImagesPlugin";
 import ToolbarPlugin from "./ToolbarPlugin";
 
 const theme = {
@@ -118,10 +116,7 @@ export default function TextEditor({
 			ListItemNode,
 			QuoteNode,
 			CodeNode,
-			CodeHighlightNode,
-			AutoLinkNode,
 			LinkNode,
-			ImageNode,
 		],
 		editorState: initialValue || null,
 		editable: !readOnly,
@@ -169,7 +164,6 @@ export default function TextEditor({
 					<AutoFocusPlugin />
 					<ListPlugin />
 					<LinkPlugin />
-					<ImagesPlugin />
 					<MarkdownShortcutPlugin transformers={TRANSFORMERS} />
 					{onChange && (
 						<OnChangePlugin

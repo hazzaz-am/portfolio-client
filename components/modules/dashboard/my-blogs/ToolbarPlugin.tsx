@@ -1,8 +1,8 @@
 "use client";
+import { $isListNode } from "@lexical/list";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { $createCodeNode } from "@lexical/code";
 import {
 	INSERT_ORDERED_LIST_COMMAND,
 	INSERT_UNORDERED_LIST_COMMAND,
@@ -27,11 +27,9 @@ import {
 } from "lexical";
 import {
 	Bold,
-	Code,
 	Heading1,
 	Heading2,
 	Heading3,
-	Image,
 	Italic,
 	List,
 	ListOrdered,
@@ -42,9 +40,7 @@ import {
 	Underline,
 	Undo,
 } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
-import ImageDialog from "./ImageDialog";
-import { INSERT_IMAGE_COMMAND } from "./ImagesPlugin";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const LowPriority = 1;
 
@@ -59,7 +55,6 @@ interface ToolbarState {
 
 export default function ToolbarPlugin() {
 	const [editor] = useLexicalComposerContext();
-	const [showImageDialog, setShowImageDialog] = useState(false);
 	const [toolbarState, setToolbarState] = useState<ToolbarState>({
 		isBold: false,
 		isItalic: false,
@@ -77,8 +72,13 @@ export default function ToolbarPlugin() {
 				anchorNode.getKey() === "root"
 					? anchorNode
 					: anchorNode.getTopLevelElementOrThrow();
-			const elementKey = element.getKey();
-			const elementDOM = editor.getElementByKey(elementKey);
+
+			let blockType = element.getType();
+
+			// Check if it’s a list node and refine the blockType
+			if ($isListNode(element)) {
+				blockType = element.getListType(); // "bullet" | "number" | "check"
+			}
 
 			setToolbarState({
 				isBold: selection.hasFormat("bold"),
@@ -86,7 +86,7 @@ export default function ToolbarPlugin() {
 				isUnderline: selection.hasFormat("underline"),
 				isStrikethrough: selection.hasFormat("strikethrough"),
 				isCode: selection.hasFormat("code"),
-				blockType: element.getType(),
+				blockType,
 			});
 		}
 	}, [editor]);
@@ -142,17 +142,6 @@ export default function ToolbarPlugin() {
 		}
 	};
 
-	const formatCode = () => {
-		if (toolbarState.blockType !== "code") {
-			editor.update(() => {
-				const selection = $getSelection();
-				if ($isRangeSelection(selection)) {
-					$setBlocksType(selection, () => $createCodeNode());
-				}
-			});
-		}
-	};
-
 	const formatBulletList = () => {
 		if (toolbarState.blockType !== "bullet") {
 			editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
@@ -167,25 +156,6 @@ export default function ToolbarPlugin() {
 		} else {
 			editor.dispatchCommand(REMOVE_LIST_COMMAND, undefined);
 		}
-	};
-
-	const insertImage = () => {
-		setShowImageDialog(true);
-	};
-
-	const handleImageInsert = (data: {
-		src: string;
-		altText?: string;
-		width?: number;
-		height?: number;
-	}) => {
-		editor.dispatchCommand(INSERT_IMAGE_COMMAND, {
-			src: data.src,
-			altText: data.altText || "",
-			maxWidth: 800,
-			width: data.width,
-			height: data.height,
-		});
 	};
 
 	const ToolbarButton = ({
@@ -309,13 +279,6 @@ export default function ToolbarPlugin() {
 					>
 						<Strikethrough className="w-4 h-4" />
 					</ToolbarButton>
-					<ToolbarButton
-						onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "code")}
-						isActive={toolbarState.isCode}
-						aria-label="Inline Code"
-					>
-						<Code className="w-4 h-4" />
-					</ToolbarButton>
 				</div>
 
 				<Separator orientation="vertical" className="h-6 mx-1" />
@@ -328,13 +291,6 @@ export default function ToolbarPlugin() {
 						aria-label="Quote"
 					>
 						<Quote className="w-4 h-4" />
-					</ToolbarButton>
-					<ToolbarButton
-						onClick={formatCode}
-						isActive={toolbarState.blockType === "code"}
-						aria-label="Code Block"
-					>
-						<Code className="w-4 h-4" />
 					</ToolbarButton>
 					<ToolbarButton
 						onClick={formatBulletList}
@@ -353,22 +309,7 @@ export default function ToolbarPlugin() {
 				</div>
 
 				<Separator orientation="vertical" className="h-6 mx-1" />
-
-				{/* Media Controls */}
-				<div className="flex items-center gap-1">
-					<ToolbarButton onClick={insertImage} aria-label="Insert Image">
-						<Image className="w-4 h-4" />
-					</ToolbarButton>
-				</div>
 			</div>
-
-			{/* Image Dialog */}
-			{showImageDialog && (
-				<ImageDialog
-					onInsert={handleImageInsert}
-					onClose={() => setShowImageDialog(false)}
-				/>
-			)}
 		</>
 	);
 }
