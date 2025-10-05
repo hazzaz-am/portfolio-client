@@ -267,7 +267,11 @@ export default function UploadImage({
 					<AlertTitle>Upload failed</AlertTitle>
 					<AlertDescription>
 						<p>{uploadError}</p>
-						<Button onClick={retryUpload} className="bg-red-600 hover:bg-red-700" size="sm">
+						<Button
+							onClick={retryUpload}
+							className="bg-red-600 hover:bg-red-700"
+							size="sm"
+						>
 							Retry Upload
 						</Button>
 					</AlertDescription>

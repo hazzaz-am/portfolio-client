@@ -85,7 +85,7 @@ const projectCategories = [
 	"Other",
 ];
 
-export default function CreateProjectPage() {
+export default function EditProjectPage() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const form = useForm<ProjectFormValues>({
@@ -127,11 +127,11 @@ export default function CreateProjectPage() {
 			// Simulate API call
 			await new Promise((resolve) => setTimeout(resolve, 1000));
 
-			toast.success("Project created successfully!");
+			toast.success("Project edited successfully!");
 			form.reset();
 		} catch (error) {
-			console.error("Error creating project:", error);
-			toast.error("Failed to create project. Please try again.");
+			console.error("Error editing project:", error);
+			toast.error("Failed to edit project. Please try again.");
 		} finally {
 			setIsSubmitting(false);
 		}
@@ -141,18 +141,15 @@ export default function CreateProjectPage() {
 		<div className="container mx-auto max-w-4xl p-4 space-y-6">
 			<div className="text-center space-y-2">
 				<h1 className="text-3xl font-bold tracking-tight">
-					Create New Project
+					Update Your Project
 				</h1>
-				<p className="text-muted-foreground">
-					Add a new project to your portfolio
-				</p>
 			</div>
 
 			<Card>
 				<CardHeader>
 					<CardTitle className="flex items-center gap-2">
 						<Save className="h-5 w-5" />
-						Project Details
+						Update Project Details
 					</CardTitle>
 				</CardHeader>
 				<CardContent>
@@ -420,12 +417,12 @@ export default function CreateProjectPage() {
 									{isSubmitting ? (
 										<>
 											<Loader2 className="mr-2 h-4 w-4 animate-spin" />
-											Creating...
+											Updating...
 										</>
 									) : (
 										<>
 											<Save className="mr-2 h-4 w-4" />
-											Create Project
+											Update Project
 										</>
 									)}
 								</Button>

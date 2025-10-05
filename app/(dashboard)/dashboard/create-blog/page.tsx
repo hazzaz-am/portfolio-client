@@ -1,6 +1,6 @@
 "use client";
 
-import UploadImage from "@/components/modules/dashboard/UploadImage";
+import UploadImage from "@/components/modules/dashboard/my-blogs/UploadImage";
 import TextEditor from "@/components/modules/dashboard/my-blogs/TextEditor";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -274,7 +274,7 @@ export default function CreateBlogPage() {
 										<FormControl>
 											<TextEditor
 												onChange={handleEditorChange}
-												placeholder="Start writing your blog content... Use markdown shortcuts like # for headings, **bold**, *italic*, > for quotes"
+												placeholder="Start writing your blog content... "
 												className="min-h-[400px]"
 											/>
 										</FormControl>
@@ -288,7 +288,7 @@ export default function CreateBlogPage() {
 								<Button
 									type="submit"
 									disabled={isSubmitting}
-									className="flex-1 sm:flex-none bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white h-12 px-8 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50"
+									className="flex-1 sm:flex-none h-12 px-8 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50"
 								>
 									{isSubmitting ? (
 										<div className="flex items-center gap-2">
