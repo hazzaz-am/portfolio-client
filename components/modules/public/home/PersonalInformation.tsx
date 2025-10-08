@@ -12,6 +12,8 @@ import {
 	MapPin,
 	Phone,
 } from "lucide-react";
+import Link from "next/link";
+import { IconBrandLeetcode } from "@tabler/icons-react";
 
 const personalInfo = {
 	name: "Hazzaz Abdul Mannan",
@@ -20,9 +22,10 @@ const personalInfo = {
 	location: "Dhaka, Bangladesh",
 	email: "hazzazabdulmannan@gmail.com",
 	phone: "+880 1771-817843",
-	website: "https://hazzaz-am.dev",
+	website: "https://hazzaz-am.vercel.app",
 	github: "https://github.com/hazzaz-am",
 	linkedin: "https://www.linkedin.com/in/hazzaz01",
+	leetcode: "https://leetcode.com/u/hazzaz_abdul_mannan",
 };
 
 export default function PersonalInformation() {
@@ -86,30 +89,38 @@ export default function PersonalInformation() {
 
 				{/* Social Links */}
 				<div className="flex justify-center space-x-3 sm:space-x-4 mt-6 sm:mt-8">
-					<a
+					<Link
 						href={personalInfo.website}
 						className="p-3 bg-slate-100 dark:bg-neutral-800 rounded-full hover:bg-orange-100 dark:hover:bg-orange-600 transition-colors group"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<Globe className="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-orange-600" />
-					</a>
-					<a
+					</Link>
+					<Link
 						href={personalInfo.github}
 						className="p-3 bg-slate-100 dark:bg-neutral-800 rounded-full hover:bg-orange-100 dark:hover:bg-orange-600 transition-colors group"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<Github className="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-orange-600" />
-					</a>
-					<a
+					</Link>
+					<Link
+						href={personalInfo.leetcode}
+						className="p-3 bg-slate-100 dark:bg-neutral-800 rounded-full hover:bg-orange-100 dark:hover:bg-orange-600 transition-colors group"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<IconBrandLeetcode className="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-orange-600" />
+					</Link>
+					<Link
 						href={personalInfo.linkedin}
 						className="p-3 bg-slate-100 dark:bg-neutral-800 rounded-full hover:bg-orange-100 dark:hover:bg-orange-600 transition-colors group"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<Linkedin className="w-5 h-5 text-slate-600 dark:text-slate-300 group-hover:text-orange-600" />
-					</a>
+					</Link>
 				</div>
 			</div>
 		</motion.div>

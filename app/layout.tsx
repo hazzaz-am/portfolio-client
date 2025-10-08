@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import { toastOptions } from "@/utils/toastOptions";
+import Navbar from "@/components/layout/navbar/Navbar";
+import Footer from "@/components/layout/footer/footer";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -29,7 +31,11 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					{children}
+					<section className="min-h-screen flex flex-col">
+						<Navbar />
+						<main className="grow">{children}</main>
+						<Footer />
+					</section>
 					<Toaster
 						position="top-right"
 						gutter={8}

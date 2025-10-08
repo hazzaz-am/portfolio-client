@@ -15,7 +15,8 @@ export default function ProjectsButton() {
 			className="text-center mt-10 sm:mt-12"
 		>
 			<Link
-				href="/projects"
+				href="https://github.com/hazzaz-am"
+				target="_blank"
 				className="inline-flex items-center gap-2 rounded-full font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-sm sm:text-base"
 			>
 				<Button>

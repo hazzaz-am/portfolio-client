@@ -33,7 +33,7 @@ const navItems = [
 	},
 	{
 		name: "Projects",
-		link: "/projects",
+		link: "#projects",
 	},
 ];
 
