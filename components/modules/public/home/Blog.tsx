@@ -135,7 +135,7 @@ export default function BlogSection() {
 					))}
 				</div>
 
-				<BlogButton />
+				{/* <BlogButton /> */}
 			</div>
 		</section>
 	);
